@@ -2,19 +2,22 @@ import xml.etree.ElementTree as ET
 
 # Function to recursively extract text content while preserving spaces
 def extract_text_with_spaces(element):
-    text = element.text.strip() if element.text else ''
+    text = ''
+    if element.text:
+        text += element.text
     for child in element:
-        if child.tag == 'lugar' or child.tag == 'data' or child.tag == 'entidade':
-            text += ' ' + child.text.strip() if child.text else ''
-        elif child.tag == 'para':
-            text += ' ' + extract_text_with_spaces(child)
-    return text.strip()
+        text += extract_text_with_spaces(child)
+        if child.tail:
+            text += child.tail + ' '
+    return text
 
 def extract_street_description(root):
-    para_texts = []
-    for para in root.findall('.//para'):
+    para_texts = ""
+    corpo = root.find('corpo')
+    for para in corpo.findall('para'):
         para_text = extract_text_with_spaces(para)
-        para_texts.append(para_text)
+        para_texts += para_text
+
     return para_texts
 
 def extract_images(root):
@@ -29,25 +32,20 @@ def extract_houses(root):
     houses = []
     for casa in root.findall('.//casa'):
         house_info = {}
-        house_info['número'] = casa.find('número').text.strip()
-        house_info['enfiteuta'] = casa.find('enfiteuta').text.strip() if casa.find('enfiteuta') is not None else ''
-        house_info['foro'] = casa.find('foro').text.strip() if casa.find('foro') is not None else ''
-        desc_element = casa.find('desc')
-        house_info['desc'] = extract_text_with_spaces(desc_element) if desc_element is not None else ''
+        house_info['numero'] = casa.find('número').text if casa.find('número') is not None else '-'
+        house_info['enfiteuta'] = casa.find('enfiteuta').text if casa.find('enfiteuta') is not None else '-'
+        house_info['foro'] = casa.find('foro').text if casa.find('foro') is not None else '-'
+        house_info['vista'] = casa.find('vista').text if casa.find('vista') is not None else '-'
+        desc_element = casa.find('.//desc')
+        house_info['desc'] = extract_text_with_spaces(desc_element) if desc_element is not None else '-'
         houses.append(house_info)
     return houses
 
-# Example usage:
-if __name__ == "__main__":
-    tree = ET.parse('./MRB-01-RuaDoCampo.xml')
-    root = tree.getroot()
+def extract_street_name(root):
+    return root.find('.//nome').text.strip()
 
-    street_description = extract_street_description(root)
-    images = extract_images(root)
-    houses = extract_houses(root)
-
-    for text in street_description:
-        print(text)
-
-    print(images)
-    print(houses)
+def substitute_tags(component, data):
+    """
+    Substitute {content} tags in the component with corresponding data.
+    """
+    return component.format(**data)
