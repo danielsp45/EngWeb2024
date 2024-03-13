@@ -1,0 +1,16 @@
+{
+  "name": "tpc3",
+  "version": "1.0.0",
+  "description": "## Autor: - a100545 - Daniel da Silva Pereira",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "json-server": "^1.0.0-alpha.23"
+  }
+}
