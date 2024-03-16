@@ -9,7 +9,7 @@
 ## Resumo
 
 Criar uma aplicação para a gestão de uma base de dados de compositores musicais:
-1. Montar a API de dados com o json-server a partir do dataset [compositores.json](./compositores.json);
+1. Montar a API de dados com o json-server a partir do dataset [data.json](./data.json);
 2. Criar uma aplicação Web com as seguintes caraterísticas:
     - CRUD sobre compositores;
     - CRUD sobre periodos musicais.
@@ -17,13 +17,20 @@ Criar uma aplicação para a gestão de uma base de dados de compositores musica
 
 ## Páginas
 
-- `/`, lista das entidades disponíveis no dataset
+- GET `/`
 
-- `/movies`, lista de todos os filmes
-- `/movies/1`, detalhes de um filme
+- GET `/compositores` 
+- GET `/compositores/:id`
+- GET `/compositores/edit/:id`
+- GET `/compositores/create`
+- POST `/compositores/edit/:id`
+- POST `/compositores/delete/:id`
+- POST `/compositores/create`
 
-- `/actors`, lista de todos os atores
-- `/actors/1`, detalhes de um ator
-
-- `/genres`, lista de todos os géneros
-- `/genres/1`, detalhes de um género
+- GET `/periodos` 
+- GET `/periodos/:id`
+- GET `/periodos/edit/:id`
+- GET `/periodos/create`
+- POST `/periodos/edit/:id`
+- POST `/periodos/delete/:id`
+- POST `/periodos/create`
