@@ -1,7 +1,7 @@
 {
   "compositores": [
     {
-      "nome": "Alessandro Marcellini",
+      "nome": "Alessandro Marcello",
       "dataNasc": "1673-02-01",
       "dataObito": "1747-06-19",
       "periodo": "Barroco",
@@ -1319,6 +1319,14 @@
       "dataNasc": "1711-09-11",
       "dataObito": "1779-02-07",
       "periodo": "Barroco"
+    },
+    {
+      "id": "097e",
+      "nome": "Andrea Bochelli",
+      "dataNasc": "1997-01-01",
+      "dataObito": "2003-01-01",
+      "periodo": "Contemporanio/Rap",
+      "bio": "Wassup mf"
     }
   ]
 }
