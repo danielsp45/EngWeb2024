@@ -34,3 +34,11 @@ module.exports.remove = async (id) => {
     throw new Error("Error deleting pessoa");
   }
 };
+
+module.exports.listModalidades = async () => {
+  return await Pessoa.distinct("desportos").exec();
+};
+
+module.exports.listPessoasByModalidade = async (modalidade) => {
+  return await Pessoa.find({ desportos: modalidade }).sort({ nome: 1 }).exec();
+};

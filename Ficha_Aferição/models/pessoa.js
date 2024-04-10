@@ -34,7 +34,6 @@ const pessoaSchema = new Schema({
   idade: Number,
   sexo: String,
   morada: moradaSchema,
-  BI: String,
   descricao: String,
   profissao: String,
   partido_politico: partidoPoliticoSchema,
