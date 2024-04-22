@@ -40,5 +40,5 @@ module.exports.listModalidades = async () => {
 };
 
 module.exports.listPessoasByModalidade = async (modalidade) => {
-  return await Pessoa.find({ desportos: modalidade }).sort({ nome: 1 }).exec();
+  return await Pessoa.find({ desportos: modalidade }).exec();
 };
