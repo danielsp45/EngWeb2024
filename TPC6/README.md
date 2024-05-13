@@ -1,14 +1,30 @@
-# TPC5 - Compositores de Mùsica (Com Pug+Express)
+# TPC6: Website de compositores (em Express + Mongo)
 
-2024-03-29
+## 2024-05-13
 
-## Autor
+## Autor:
 
-- A100545
+- a100545
 - Daniel da Silva Pereira
 
 ## Resumo
 
-O objetivo deste trabalho foi adaptar a solução do [TPC anterior](../TPC4) para utilizar Pug e Express.
+Neste trabalho, utilizou-se o mesmo dataset do TPC4. No entanto, em vez de criar um servidor web diretamente em Node.js, utilizou-se o Express (com Pug) para tal. Adicionalmente, utilizou-se o MongoDB para armazenar os dados - assim, deixou de ser necessário correr o `json-server`.
 
-As instruções e endpoints são os mesmos e o design da aplicação mantem-se quase inalterado.
+## Resultados
+
+Instalar as dependências:
+```bash
+$ npm install
+```
+
+Correr o servidor `express`:
+```bash
+$ npm start
+```
+
+Para correr a base de dados, basta utilizar, por exemplo, docker.
+
+## Páginas
+
+As mesmas do TPC4.
