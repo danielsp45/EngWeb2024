@@ -1,0 +1,36 @@
+block content
+    doctype html
+    html
+    head
+        meta(charset="UTF-8")
+        link(rel="icon", href="favicon.png")
+        link(rel="stylesheet", href="/w3.css")
+        title Compositores
+    body
+        .w3-card-4
+        header.w3-container.w3-green
+            h1 Lista de compositores
+            a.w3-button.w3-white(href="/compositores/create") Adicionar Compositor
+        .w3-container
+            table.w3-table-all
+                tr
+                    th Id
+                    th Nome
+                    th Periodo
+                    th Ações
+                each compositor in clist
+                    tr
+                        td=compositor.id
+                        td
+                            a(href='/compositores/' + compositor.id)=compositor.nome
+                        td=compositor.periodo
+                        td
+                            | [
+                            a(href='/compositores/edit/' + compositor.id) Edit
+                            | ][
+                            a(href='/compositores/delete/' + compositor.id) Delete
+                            | ]
+            div
+                footer.w3-container.w3-green
+                    address
+                        | Gerado por galuno::EngWeb2024

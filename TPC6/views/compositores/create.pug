@@ -1,0 +1,35 @@
+block content
+    head
+        title Criar Compositor
+        meta(charset='utf-8')
+        link(rel='icon' href='favicon.png')
+        link(rel='stylesheet' href='/w3.css')
+
+    body
+        div.w3-card-4
+            header.w3-container.w3-green
+                h1 Criar Compositor
+            div.w3-container
+                form(action='/compositores/create', method='post')
+                    ul.w3-ul.w3-card-4(style='width:50%')
+                        li
+                            b Nome:
+                            input(type='text' name='nome')
+                        li
+                            b Data nascimento:
+                            input(type='text' name='dataNasc')
+                        li
+                            b Data obito:
+                            input(type='text' name='dataObito')
+                        li
+                            b Periodo:
+                            input(type='text' name='periodo')
+                        li
+                            b Bio:
+                            input(type='text' name='bio')
+                    input(type='submit' value='Submit')
+            footer.w3-container.w3-green
+                address
+                | Gerado por galuno::EngWeb2024 - [
+                a(href='/compositores') Voltar
+                | ]
